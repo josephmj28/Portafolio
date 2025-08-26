@@ -1,0 +1,209 @@
+ @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;600&display=swap');
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+ h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Orbitron', sans-serif;
+      color: #ff7300;
+      font-size: 2.5rem;
+    }
+
+
+.nav nav {
+    display: flex;                 
+    justify-content: space-between; 
+    align-items: center;           
+    width: 100%;                   
+    padding-top: 5px;  
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+
+.code-logo {
+  width: 500px; /* tamaño aproximado del área del logo */
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  font-family: monospace;
+  color: #ff5c00; /* color llamativo naranja */
+  background: #0f0f0f; /* fondo oscuro */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.nav .informacion {
+    display: flex;
+    gap: 30px;                     
+}
+
+.nav .informacion a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.nav a:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+    color: #ff7300;;
+    
+}
+
+
+.nav .idioma button {
+    padding: 8px 16px;
+    background-color: #ff7300;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav .idioma button:hover {
+    background-color: #ff4500;
+}
+
+header {
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
+      background: linear-gradient(90deg, #ff0000, #ff7300);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff0000; }
+      25% { text-shadow: -2px -2px #ff7300; }
+      50% { text-shadow: 2px -2px #ff0000; }
+      75% { text-shadow: -2px 2px #ff7300; }
+      100% { text-shadow: 2px 2px #ff0000; }
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+      color: #ccc;
+      letter-spacing: 2px;
+    }
+
+ .proyectos-wrapper{
+    padding: 20px 50px 50px 50px;
+}
+
+
+.proyectos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #111;
+      border: 2px solid #ff0000;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotate(-1deg);
+      box-shadow: 0 0 25px #ff7300;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #ff7300;
+      margin-bottom: 10px;
+    }
+
+    
+
+    .card p {
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+.story {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      color: #ddd;
+    }
+
+.highlight {
+      color: #ff7300;
+      font-weight: bold;
+    }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arrow {
+  border: solid orangered;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.arrow.down {
+  transform: rotate(45deg); /* Gira la flecha 45 grados para que apunte hacia abajo */
+  margin-top: 20px; /* Ajusta el espacio de la flecha si es necesario */
+}
+
+/* Define la animación */
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) rotate(45deg); /* Empieza arriba y rotada */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0px) rotate(45deg); /* Se mueve hacia abajo */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) rotate(45deg); /* Desaparece al ir más abajo */
+  }
+}
+
+/* Aplica la animación al elemento */
+.arrow.down {
+  animation: moveDown 1.5s infinite;}
