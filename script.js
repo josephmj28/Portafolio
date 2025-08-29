@@ -127,20 +127,20 @@ const projects = {
     images: ["images/neon.png"], 
     stack: ["HTML", "CSS"],
     links: {
-      demo: "https://tudemo1.com",
-      github: "https://github.com/tuusuario/proyecto1",
-      detalles: "proyecto1.html"
+      
+      github: "https://github.com/josephmj28/Proyecto1"
+      
     }
   },
   2: {
     title: "Diseño Ecommerce para suplementos deportivos",
     description: "Diseño de E-commerce de suplementos deportivos y planes de entrenamiento. En este proyecto se aplico react y nodeJS.",
-    images: ["img/proyecto2.png", "img/proyecto2-extra.png"],
+    images: ["images/Gym1.png", "images/Gym2.png"],
     stack: ["HTML", "CSS", "JavaScript","React"],
     links: {
-      demo: "https://tudemo2.com",
-      github: "https://github.com/tuusuario/proyecto2",
-      detalles: "proyecto2.html"
+      
+      github: "https://github.com/josephmj28/gym-project"
+      
     }
   },
   3: {
@@ -194,3 +194,51 @@ window.addEventListener("click", e => {
 document.querySelector(".arrow-container").addEventListener("click", () => {
   document.querySelector("#proyectos").scrollIntoView({ behavior: "smooth" });
 });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Selecciona el elemento que contiene el nombre
+    const nameElement = document.querySelector('.name-glow');
+    
+    // Espera 3 segundos, la duración de la animación de escritura
+    setTimeout(() => {
+      // Después de 3 segundos, añade la clase 'glitch-effect'
+      nameElement.classList.add('glitch-effect');
+    }, 3000);
+  });
+
+ document.querySelectorAll('.skill-card').forEach(card => {
+  // Hover animación tipo pulso
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+    card.style.transform = 'scale(1.05)';
+    card.style.boxShadow = '0 0 25px rgba(0,255,255,0.6)';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'scale(1)';
+    card.style.boxShadow = '0 0 15px rgba(0,255,255,0.2)';
+  });
+
+  // Efecto de vibración al hacer clic
+  card.addEventListener('click', () => {
+    card.style.animation = 'vibrate 0.3s linear';
+    setTimeout(() => {
+      card.style.animation = '';
+    }, 300);
+  });
+});
+
+// Agrega esta animación en tu CSS
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+`;
+document.head.appendChild(style);
+

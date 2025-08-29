@@ -79,30 +79,43 @@ header {
       text-align: center;
     }
 
-    .name-glow {
-      font-family: "Luckiest Guy", cursive;
-      color: #00ff84;
-      font-size: 5rem;
-      font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid green;
-    width: 0;
-    animation: typing 3s steps(20, end) forwards,
+.name-glow {
+  font-family: "Luckiest Guy", cursive;
+  color: #00ff84;
+  font-size: 5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid green;
+  width: 0;
+  animation: typing 3s steps(20, end) forwards,
              blink .7s step-end infinite;
-    }
+}
 
-    @keyframes typing {
-      to { width: 10ch; } 
-    }
+/* Esta clase se añadirá con JavaScript para activar el efecto glitch */
+.name-glow.glitch-effect {
+  animation: typing 3s steps(20, end) forwards,
+             blink 0.7s step-end infinite 3s,
+             glitch 1s infinite 3s; /* La animación de glitch que se repite después de 3s */
+}
 
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+@keyframes typing {
+  to { width: 10ch; }
+}
 
-    .name-glow.typing-done {
-      border-right: none;
-    }
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* La animación que crea el efecto de fallo visual */
+@keyframes glitch {
+  0% { transform: translate(0, 0); text-shadow: none; }
+  20% { transform: translate(-2px, 2px); text-shadow: 2px -2px 0 #212121, -2px 2px 0 #06B6D4; }
+  40% { transform: translate(-2px, -2px); text-shadow: -2px -2px 0 #212121, 2px 2px 0 #06B6D4; }
+  60% { transform: translate(2px, 2px); text-shadow: 2px -2px 0 #212121, -2px 2px 0 #06B6D4; }
+  80% { transform: translate(2px, -2px); text-shadow: -2px -2px 0 #212121, 2px 2px 0 #06B6D4; }
+  100% { transform: translate(0, 0); text-shadow: none; }
+}
 
 
     header p {
@@ -124,19 +137,43 @@ header {
       gap: 30px;
     }
 
-    .card {
-      background: #111;
-      border: 2px solid #00ff84;
-      padding: 20px;
-      border-radius: 15px;
-      transition: transform 0.4s, box-shadow 0.4s;
-      cursor: pointer;
-    }
+    /* Estilos iniciales de la tarjeta */
+/* Estilos base de las tarjetas (ajusta según tus estilos actuales) */
+.card {
+  /* Tus estilos actuales como border, background-color, padding, border-radius */
+  border: 1px solid #00ff84; /* Borde verde neón */
+  background-color: #212121; /* Fondo oscuro */
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer; /* Crucial para indicar interactividad */
 
-    .card:hover {
-      transform: translateY(-10px) rotate(-1deg);
-      box-shadow: 0 0 25px #026e3a;
-    }
+  /* Transición para el hover, por si tienes otros efectos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* La animación de pulso */
+  animation: neon-border-pulse 2s infinite ease-in-out;
+}
+
+/* Efecto al pasar el cursor (hover), puedes combinarlo con la elevación si quieres */
+.card:hover {
+  transform: translateY(-5px); /* Se eleva un poco al pasar el mouse */
+  box-shadow: 0 8px 16px rgba(0, 255, 132, 0.4); /* Sombra más fuerte y colorida */
+}
+
+
+/* Definición de la animación de pulso de borde */
+@keyframes neon-border-pulse {
+  0% {
+    box-shadow: 0 0 5px #00ff84; /* Brillo inicial sutil */
+  }
+  50% {
+    box-shadow: 0 0 15px #00ff84, /* El brillo se expande y se hace más intenso */
+                0 0 25px rgba(0, 255, 132, 0.5); /* Con un halo más suave */
+  }
+  100% {
+    box-shadow: 0 0 5px #00ff84; /* Vuelve al brillo inicial */
+  }
+}
 
     .card h3 {
       font-size: 1.5rem;
@@ -241,6 +278,8 @@ header {
 .about-wrapper{
   padding-top: 30px;
   margin-top: 24vh;
+  padding-bottom: 30px;
+  margin-bottom: 24vh;
 }
 
 .contac-wrapper{
@@ -325,4 +364,95 @@ header {
   color: white; 
   padding: 50px;
 }
+
+#habilidades {
+  padding: 50px;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.skill-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 25px;
+  width: 220px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  border: 3px solid transparent;
+}
+
+.skill-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(0,255,255,0.5);
+}
+
+.skill-card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.4em;
+  color: #00ffff;
+}
+
+.skill-card p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.skill-card code {
+  background-color: #111;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: block;
+  font-size: 0.85em;
+  color: #00ff88;
+}
+
+.card-header {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  background-color: #222;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  font-weight: bold;
+}
+
+/* Rareza visual */
+.legendario {
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.epico {
+  border-image: linear-gradient(45deg, #00c6ff, #0072ff) 1;
+}
+
+.raro {
+  border-image: linear-gradient(45deg, #8e2de2, #4a00e0) 1;
+}
+
+.comun {
+  border-image: linear-gradient(45deg, #aaaaaa, #555555) 1;
+}
+
+.aprendizaje {
+  border-image: linear-gradient(45deg, #00ff88, #00ffaa) 1;
+}
+
 

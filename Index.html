@@ -9,8 +9,9 @@
     
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+
+    <link rel="icon" href="images/Icon.png" type="image/x-icon">
 
     
 
@@ -43,7 +44,9 @@
     <!-- header -->
     
     <header>
+      <div class="name-container">
         <h1 class="name-glow">Joseph Mesa</h1>
+      </div>
         <p>Desarrollador | Creativo | Innovador</p>
         
         <div class="arrow-container">
@@ -64,16 +67,18 @@
       <div class="card">
         <h3>Proyecto página neón</h3>
         <p>Proyecto para practicar HTML y CSS, con enfoque en Flexbox y páginas web responsivas.</p>
+        <span class="ver-mas">Ver más</span>
       </div>
       <div class="card">    
         <h3>Proyecto ecommerce para suplementos deportivos</h3>
         <p>Diseño de tienda web para suplementos, optimizada para experiencia de usuario.</p>
-        <span>Ver más</span>
+        <span class="ver-mas">Ver más</span>
         
       </div>
       <div class="card">
         <h3>Proyecto página para TI</h3>
         <p>Proyecto en construcción: catálogo de tecnología para asesorías.</p>
+        
       </div>
     </div>
   </section>
@@ -93,11 +98,98 @@
   <section class="reveal about-wrapper" id="sobre-mi">
         <h2>Sobre mí</h2>
         <p class="story">
-            Soy un <span class="highlight">creador digital</span> apasionado por el desarrollo web.  
-            Me gusta transformar ideas en <span class="highlight">experiencias interactivas</span> 
-            que no solo funcionan, sino que sorprenden.
+            Soy un desarrollador en formación, <span class="highlight">apasionado por transformar ideas en soluciones originales y creativas.</span> Mi enfoque principal es innovar en cada proyecto, diseñando experiencias interactivas que no solo funcionan, <span class="highlight">sino que sorprenden.</span>
         </p>
     </section>
+
+    <section id="habilidades">
+  <h2>Mis habilidades</h2>
+  <div class="card-container">
+    <!-- HTML -->
+    <div class="skill-card legendario">
+      <div class="card-header"><span class="rarity">🔥 Dominante</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML">
+      <h3>HTML</h3>
+      <p>Arquitecto del marcado</p>
+      <code>&lt;section&gt; con estilo</code>
+    </div>
+
+    <!-- CSS -->
+    <div class="skill-card legendario">
+      <div class="card-header"><span class="rarity">🔥 Dominante</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS">
+      <h3>CSS</h3>
+      <p>Estilizador Supremo</p>
+      <code>grid + flex = magia visual</code>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="skill-card epico">
+      <div class="card-header"><span class="rarity">⚡ Básico +</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+      <h3>JavaScript</h3>
+      <p>Script Ninja</p>
+      <code>console.log("¡Boom!");</code>
+    </div>
+
+    <!-- React -->
+    <div class="skill-card epico">
+      <div class="card-header"><span class="rarity">⚡ Básico +</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React">
+      <h3>React</h3>
+      <p>Component Caster</p>
+      <code>useState + JSX = magia</code>
+    </div>
+
+    <!-- Java -->
+    <div class="skill-card raro">
+      <div class="card-header"><span class="rarity">🌀 Básico</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java">
+      <h3>Java</h3>
+      <p>Backend Builder</p>
+      <code>public static void main()</code>
+    </div>
+
+    <!-- Spring Boot -->
+    <div class="skill-card raro">
+      <div class="card-header"><span class="rarity">🌀 Básico</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919842.png" alt="Spring Boot">
+      <h3>Spring Boot</h3>
+      <p>Microservicio Maker</p>
+      <code>@RestController FTW</code>
+    </div>
+
+    <!-- Python -->
+    <div class="skill-card aprendizaje">
+      <div class="card-header"><span class="rarity">📘 Aprendizaje</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+      <h3>Python</h3>
+      <p>Explorador de scripts</p>
+      <code>print("Hola mundo")</code>
+    </div>
+
+    <!-- Django -->
+    <div class="skill-card aprendizaje">
+      <div class="card-header"><span class="rarity">📘 Aprendizaje</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919837.png" alt="Django">
+      <h3>Django</h3>
+      <p>Backend Alquimista</p>
+      <code>from django.urls import path</code>
+    </div>
+
+    <!-- Bootstrap -->
+    <div class="skill-card comun">
+      <div class="card-header"><span class="rarity">🔧 Común</span></div>
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap">
+      <h3>Bootstrap</h3>
+      <p>Constructor rápido</p>
+      <code>class="container-fluid"</code>
+    </div>
+  </div>
+</section>
+
+
+       
     
     <!-- contacto al correo -->
 
@@ -116,8 +208,8 @@
       <div class="container">
         <p class="mb-1">© 2025 Joseph Mesa Jaramillo | Todos los derechos reservados</p>
       <div>
-        <a href="https://github.com/josephmj28" style="text-decoration: none;" class="text-white me-3">GitHub</a>
-        <a  href="https://www.linkedin.com/in/joseph-mesa-jaramillo-37263529a/" style="text-decoration: none;" class="text-white me-3">LinkedIn</a>
+        <a href="https://github.com/josephmj28" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="text-white me-3">GitHub</a>
+        <a  href="https://www.linkedin.com/in/joseph-mesa-jaramillo-37263529a/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="text-white me-3">LinkedIn</a>
         <a href="josephmesajaramillo7@gmail.com" style="text-decoration: none;" class="text-white">Email</a>
       </div>
       </div>
