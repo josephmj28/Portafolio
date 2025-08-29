@@ -48,12 +48,17 @@ To showcase my skills as a full-stack developer, my visual style, and my ability
 
 ##  Cómo ejecutar el proyecto / How to Run the Project
 
+##  Autor / Author
+Joseph Mesa Jaramillo
+Josephmesajaramillo7@gmail.com
+
+
+
 ```bash
 # Clona el repositorio / Clone the repository
 git clone https://github.com/josephmj28/portafolio
 
-# Autor / Author
-Joseph Mesa Jaramillo
-Josephmesajaramillo7@gmail.com
+
+
 
 
