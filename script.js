@@ -28,7 +28,7 @@ function showCode() {
   if (lineIndex < codeLines.length) {
     codeContainer.textContent += codeLines[lineIndex] + "\n";
     lineIndex++;
-    setTimeout(showCode, 300); 
+    setTimeout(showCode, 1500); 
   } else {
     
     setTimeout(() => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       },
       "color": {
-        "value": "#00BFFF" /* Color de las partículas (el mismo que tu flecha) */
+        "value": "#00BFFF" 
       },
       "shape": {
         "type": "circle",
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
       "line_linked": {
         "enable": true,
         "distance": 150,
-        "color": "#00BFFF", /* Color de las líneas */
+        "color": "#00BFFF", 
         "opacity": 0.4,
         "width": 1
       },
       "move": {
         "enable": true,
-        "speed": 2, /* Velocidad de movimiento */
+        "speed": 1, /* Velocidad de movimiento */
         "direction": "none",
         "random": false,
         "straight": false,
@@ -106,20 +106,91 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse" /* Las partículas se repelen al pasar el mouse */
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push" /* Crea nuevas partículas al hacer clic */
-        },
-        "resize": true
-      },
-    },
+    
     "retina_detect": true
   });
+});
+
+
+const nameGlowEl = document.querySelector('.name-glow');
+  nameGlowEl.addEventListener('animationend', () => {
+    nameGlowEl.classList.add('typing-done');
+  });
+
+
+
+// Proyectos dinámicos
+const projects = {
+  1: {
+    title: "Página neón",
+    description: "Segundo proyecto desarrollado para fortalecer conocimientos básicos de HTML y CSS. Durante este proyecto, perfeccioné el uso de Flexbox, optimicé la estructuración en HTML y diseñé páginas web completamente responsivas.",
+    images: ["images/neon.png"], 
+    stack: ["HTML", "CSS"],
+    links: {
+      demo: "https://tudemo1.com",
+      github: "https://github.com/tuusuario/proyecto1",
+      detalles: "proyecto1.html"
+    }
+  },
+  2: {
+    title: "Diseño Ecommerce para suplementos deportivos",
+    description: "Diseño de E-commerce de suplementos deportivos y planes de entrenamiento. En este proyecto se aplico react y nodeJS.",
+    images: ["img/proyecto2.png", "img/proyecto2-extra.png"],
+    stack: ["HTML", "CSS", "JavaScript","React"],
+    links: {
+      demo: "https://tudemo2.com",
+      github: "https://github.com/tuusuario/proyecto2",
+      detalles: "proyecto2.html"
+    }
+  },
+  3: {
+    title: "Página de asesoría tecnológica",
+    description: "En desarrollo: sistema diseñado para ofrecer un catálogo completo de productos y servicios tecnológicos.",
+    images: [],
+    stack: ["Próximamente"],
+    links: {}
+  }
+};
+
+// Modal
+const modal = document.getElementById("projectModal");
+const modalBody = document.getElementById("modal-body");
+const closeBtn = document.querySelector(".close-btn");
+
+// Selecciona todas tus cards y les da el ID del proyecto
+document.querySelectorAll(".proyectos .card").forEach((card, index) => {
+  card.addEventListener("click", () => {
+    const project = projects[index + 1];
+
+    modalBody.innerHTML = `
+      <h2>${project.title}</h2>
+      <p>${project.description}</p>
+      <div class="modal-images">
+        ${project.images.length > 0 
+          ? project.images.map(img => `<img src="${img}" alt="">`).join("")
+          : "<p style='color:#aaa;'>Sin imágenes aún</p>"}
+      </div>
+      <div class="stack">
+        ${project.stack.map(tech => `<span>${tech}</span>`).join("")}
+      </div>
+      <div class="modal-buttons">
+        ${project.links.demo ? `<a href="${project.links.demo}" target="_blank">🌐 Ver Demo</a>` : ""}
+        ${project.links.github ? `<a href="${project.links.github}" target="_blank">💻 Ver Código</a>` : ""}
+        ${project.links.detalles ? `<a href="${project.links.detalles}" target="_blank">📄 Más Detalles</a>` : ""}
+      </div>
+    `;
+
+    modal.style.display = "flex";
+  });
+});
+
+// cerrar modal
+closeBtn.addEventListener("click", () => modal.style.display = "none");
+window.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
+
+document.querySelector(".arrow-container").addEventListener("click", () => {
+  document.querySelector("#proyectos").scrollIntoView({ behavior: "smooth" });
 });

@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap:wght@600&family=Poppins:wght@300;600&display=swap');
 
 * {
       margin: 0;
@@ -21,7 +21,7 @@ html {
  h2 {
       text-align: center;
       margin-bottom: 30px;
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Luckiest Guy", cursive;
       color: #00ff84;
       font-size: 2.5rem;
     }
@@ -79,22 +79,31 @@ header {
       text-align: center;
     }
 
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
+    .name-glow {
+      font-family: "Luckiest Guy", cursive;
+      color: #00ff84;
       font-size: 5rem;
-      background: linear-gradient(90deg, #026e3a, #00ff84);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glitch 2s infinite;
+      font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid green;
+    width: 0;
+    animation: typing 3s steps(20, end) forwards,
+             blink .7s step-end infinite;
     }
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #026e3a; }
-      25% { text-shadow: -2px -2px #00ff84; }
-      50% { text-shadow: 2px -2px #026e3a; }
-      75% { text-shadow: -2px 2px #00ff84; }
-      100% { text-shadow: 2px 2px #026e3a; }
+    @keyframes typing {
+      to { width: 10ch; } 
     }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .name-glow.typing-done {
+      border-right: none;
+    }
+
 
     header p {
       font-size: 1.3rem;
@@ -103,7 +112,7 @@ header {
       letter-spacing: 2px;
     }
 
- .proyectos-wrapper{
+.proyectos-wrapper{
     padding: 120px 50px 50px 50px;
     margin-top: 12vh;
 }
@@ -141,6 +150,93 @@ header {
       color: #ddd;
       font-size: 0.95rem;
     }
+
+    .card span{
+      font-size: 0.85rem;
+      color: #00ff84;
+      margin-bottom: 7px;
+
+    }
+
+
+/* Modal fullscreen */
+.project-modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #111;
+  border: 2px solid #00ff84;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
+  color: #fff;
+}
+
+.close-btn {
+  font-size: 28px;
+  color: #00ff84;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: #ff4444;
+}
+
+/* imágenes dentro del modal */
+.modal-images img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #00ff84;
+}
+
+.stack span {
+  display: inline-block;
+  background: #00ff84;
+  color: #111;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.modal-buttons a {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 10px 15px;
+  background: #00ff84;
+  color: #111;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.modal-buttons a:hover {
+  background: #026e3a;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 
 .about-wrapper{
   padding-top: 30px;
@@ -229,3 +325,4 @@ header {
   color: white; 
   padding: 50px;
 }
+

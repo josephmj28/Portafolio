@@ -9,6 +9,10 @@
     
     <link rel="stylesheet" href="styles.css">
     
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    
 
     
     
@@ -39,8 +43,9 @@
     <!-- header -->
     
     <header>
-        <h1>Joseph Mesa</h1>
-        <p>Programador | Creativo | Innovador</p>
+        <h1 class="name-glow">Joseph Mesa</h1>
+        <p>Desarrollador | Creativo | Innovador</p>
+        
         <div class="arrow-container">
           <svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="white" stroke-width="3" viewBox="0 0 24 24">
           <path d="M6 9l6 6 6-6"/>
@@ -53,23 +58,35 @@
     <!-- seccion con los cards con cada proyecto. 
      futuramente se hara un carrucel con mas proyectos -->
 
-    <section class="reveal proyectos-wrapper" id="proyectos">
-    <h2>Mis Proyectos</h2>
+ <section class="reveal proyectos-wrapper" id="proyectos">
+    <h2>Colaboraciones</h2>
     <div class="proyectos">
       <div class="card">
-        <h3>Proyecto 1</h3>
-        <p>Primera practica en HTML y CSS puro</p>
+        <h3>Proyecto página neón</h3>
+        <p>Proyecto para practicar HTML y CSS, con enfoque en Flexbox y páginas web responsivas.</p>
       </div>
       <div class="card">    
-        <h3>Proyecto 2</h3>
-        <p>Diseño E-commerce de suplementos deportivos y planes de entrenamiento</p>
+        <h3>Proyecto ecommerce para suplementos deportivos</h3>
+        <p>Diseño de tienda web para suplementos, optimizada para experiencia de usuario.</p>
+        <span>Ver más</span>
+        
       </div>
       <div class="card">
-        <h3>Proyecto 3</h3>
-        <p>En contrucción</p>
+        <h3>Proyecto página para TI</h3>
+        <p>Proyecto en construcción: catálogo de tecnología para asesorías.</p>
       </div>
     </div>
   </section>
+
+  
+  
+  
+  <div class="project-modal" id="projectModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
     
     <!-- seccion de mi informacion -->
 
@@ -116,4 +133,7 @@
 
 
 </body>
+
+<!-- Font Awesome para íconos -->
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </html>
