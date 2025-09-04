@@ -199,3 +199,52 @@ let currentIndex = 0;
 
   // Cambio automático cada 5 segundos
   setInterval(nextSlide, 5000);
+
+
+  //funcionalidad del boton de contacto
+
+function toggleChat() {
+  const chatBox = document.getElementById('chat-box');
+  if (chatBox.style.display === 'block') {
+    chatBox.style.display = 'none';
+  } else {
+    chatBox.style.display = 'block';
+    chatBox.style.animation = 'slideIn 0.5s ease forwards';
+  }
+}
+
+// Mostrar confirmación al enviar
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#chat-box");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json"
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById("confirmacion").style.display = "block";
+      }
+    });
+  });
+});
+
+function toggleForm() {
+  const form = document.getElementById('contact-form');
+  const widget = document.getElementById('contact-widget');
+
+  const isVisible = !form.classList.contains('hidden');
+
+  if (isVisible) {
+    form.classList.add('hidden');
+    widget.classList.remove('hidden');
+  } else {
+    form.classList.remove('hidden');
+    widget.classList.add('hidden');
+  }
+}
