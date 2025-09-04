@@ -111,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+//animacion flecha
+
 
 const nameGlowEl = document.querySelector('.name-glow');
   nameGlowEl.addEventListener('animationend', () => {
@@ -118,83 +120,13 @@ const nameGlowEl = document.querySelector('.name-glow');
   });
 
 
-
-// Proyectos dinámicos
-const projects = {
-  1: {
-    title: "Página neón",
-    description: "Segundo proyecto desarrollado para fortalecer conocimientos básicos de HTML y CSS. Durante este proyecto, perfeccioné el uso de Flexbox, optimicé la estructuración en HTML y diseñé páginas web completamente responsivas.",
-    images: ["images/neon.png"], 
-    stack: ["HTML", "CSS"],
-    links: {
-      
-      github: "https://github.com/josephmj28/Proyecto1"
-      
-    }
-  },
-  2: {
-    title: "Diseño Ecommerce para suplementos deportivos",
-    description: "Diseño de E-commerce de suplementos deportivos y planes de entrenamiento. En este proyecto se aplico react y nodeJS.",
-    images: ["images/Gym1.png", "images/Gym2.png"],
-    stack: ["HTML", "CSS", "JavaScript","React"],
-    links: {
-      
-      github: "https://github.com/josephmj28/gym-project"
-      
-    }
-  },
-  3: {
-    title: "Página de asesoría tecnológica",
-    description: "En desarrollo: sistema diseñado para ofrecer un catálogo completo de productos y servicios tecnológicos.",
-    images: [],
-    stack: ["Próximamente"],
-    links: {}
-  }
-};
-
-// Modal
-const modal = document.getElementById("projectModal");
-const modalBody = document.getElementById("modal-body");
-const closeBtn = document.querySelector(".close-btn");
-
-// Selecciona todas tus cards y les da el ID del proyecto
-document.querySelectorAll(".proyectos .card").forEach((card, index) => {
-  card.addEventListener("click", () => {
-    const project = projects[index + 1];
-
-    modalBody.innerHTML = `
-      <h2>${project.title}</h2>
-      <p>${project.description}</p>
-      <div class="modal-images">
-        ${project.images.length > 0 
-          ? project.images.map(img => `<img src="${img}" alt="">`).join("")
-          : "<p style='color:#aaa;'>Sin imágenes aún</p>"}
-      </div>
-      <div class="stack">
-        ${project.stack.map(tech => `<span>${tech}</span>`).join("")}
-      </div>
-      <div class="modal-buttons">
-        ${project.links.demo ? `<a href="${project.links.demo}" target="_blank">🌐 Ver Demo</a>` : ""}
-        ${project.links.github ? `<a href="${project.links.github}" target="_blank">💻 Ver Código</a>` : ""}
-        ${project.links.detalles ? `<a href="${project.links.detalles}" target="_blank">📄 Más Detalles</a>` : ""}
-      </div>
-    `;
-
-    modal.style.display = "flex";
-  });
-});
-
-// cerrar modal
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", e => {
-  if (e.target === modal) modal.style.display = "none";
-});
-
-
 document.querySelector(".arrow-container").addEventListener("click", () => {
   document.querySelector("#proyectos").scrollIntoView({ behavior: "smooth" });
 });
 
+
+
+//animacion de gltch en el nombre
 
   document.addEventListener('DOMContentLoaded', () => {
     // Selecciona el elemento que contiene el nombre
@@ -207,7 +139,10 @@ document.querySelector(".arrow-container").addEventListener("click", () => {
     }, 3000);
   });
 
- document.querySelectorAll('.skill-card').forEach(card => {
+ 
+ //animacion de las cart de habilidades
+ 
+  document.querySelectorAll('.skill-card').forEach(card => {
   // Hover animación tipo pulso
   card.addEventListener('mouseenter', () => {
     card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
@@ -229,7 +164,7 @@ document.querySelector(".arrow-container").addEventListener("click", () => {
   });
 });
 
-// Agrega esta animación en tu CSS
+
 const style = document.createElement('style');
 style.innerHTML = `
 @keyframes vibrate {
@@ -240,5 +175,27 @@ style.innerHTML = `
   100% { transform: translateX(0); }
 }
 `;
-document.head.appendChild(style);
+let currentIndex = 0;
+  const items = document.querySelectorAll('.carousel-item');
 
+  function showSlide(index) {
+    items.forEach((item, i) => {
+      item.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % items.length;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    showSlide(currentIndex);
+  }
+
+  // Inicializar carrusel
+  showSlide(currentIndex);
+
+  // Cambio automático cada 5 segundos
+  setInterval(nextSlide, 5000);

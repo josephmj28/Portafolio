@@ -44,7 +44,7 @@ html {
   overflow: hidden;
   position: relative;
   font-family: monospace;
-  color:  #00FF00; 
+  color:  #00ff84; 
   background: transparent; 
   padding: 10px;
   border-radius: 5px;
@@ -86,7 +86,7 @@ header {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid green;
+  border-right: 3px solid #00ff84;
   width: 0;
   animation: typing 3s steps(20, end) forwards,
              blink .7s step-end infinite;
@@ -96,7 +96,7 @@ header {
 .name-glow.glitch-effect {
   animation: typing 3s steps(20, end) forwards,
              blink 0.7s step-end infinite 3s,
-             glitch 1s infinite 3s; /* La animación de glitch que se repite después de 3s */
+             glitch 1.5s infinite 3s; /* La animación de glitch que se repite después de 3s */
 }
 
 @keyframes typing {
@@ -125,166 +125,123 @@ header {
       letter-spacing: 2px;
     }
 
-.proyectos-wrapper{
-    padding: 120px 50px 50px 50px;
-    margin-top: 12vh;
-}
-
-
-.proyectos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    /* Estilos iniciales de la tarjeta */
-/* Estilos base de las tarjetas (ajusta según tus estilos actuales) */
-.card {
-  /* Tus estilos actuales como border, background-color, padding, border-radius */
-  border: 1px solid #00ff84; /* Borde verde neón */
-  background-color: #212121; /* Fondo oscuro */
-  padding: 20px;
-  border-radius: 8px;
-  cursor: pointer; /* Crucial para indicar interactividad */
-
-  /* Transición para el hover, por si tienes otros efectos */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* La animación de pulso */
-  animation: neon-border-pulse 2s infinite ease-in-out;
-}
-
-/* Efecto al pasar el cursor (hover), puedes combinarlo con la elevación si quieres */
-.card:hover {
-  transform: translateY(-5px); /* Se eleva un poco al pasar el mouse */
-  box-shadow: 0 8px 16px rgba(0, 255, 132, 0.4); /* Sombra más fuerte y colorida */
-}
-
-
-/* Definición de la animación de pulso de borde */
-@keyframes neon-border-pulse {
-  0% {
-    box-shadow: 0 0 5px #00ff84; /* Brillo inicial sutil */
-  }
-  50% {
-    box-shadow: 0 0 15px #00ff84, /* El brillo se expande y se hace más intenso */
-                0 0 25px rgba(0, 255, 132, 0.5); /* Con un halo más suave */
-  }
-  100% {
-    box-shadow: 0 0 5px #00ff84; /* Vuelve al brillo inicial */
-  }
-}
-
-    .card h3 {
-      font-size: 1.5rem;
-      color: #00ff84;
-      margin-bottom: 10px;
-    }
-
-    
-
-    .card p {
-      color: #ddd;
-      font-size: 0.95rem;
-    }
-
-    .card span{
-      font-size: 0.85rem;
-      color: #00ff84;
-      margin-bottom: 7px;
-
-    }
-
-
-/* Modal fullscreen */
-.project-modal {
-  display: none; /* oculto por defecto */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 20px;
-}
-
-.modal-content {
-  background: #111;
-  border: 2px solid #00ff84;
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 900px;
-  width: 90%;
-  max-height: 85vh;
-  overflow-y: auto;
-  animation: fadeIn 0.4s ease;
-  color: #fff;
-}
-
-.close-btn {
-  font-size: 28px;
-  color: #00ff84;
-  cursor: pointer;
-  float: right;
-  margin-bottom: 15px;
-  transition: 0.3s;
-}
-.close-btn:hover {
-  color: #ff4444;
-}
-
-/* imágenes dentro del modal */
-.modal-images img {
+.carousel-container {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  margin-bottom: 15px;
+  max-width: 900px;
+  margin: 4rem auto;
+  margin-bottom: 10rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 25px #00ff99;
+  background: linear-gradient(145deg, #111, #1a1a1a);
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+.carousel-item.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+
+}
+
+.carousel-item img {
+  max-width: 100%;
   border-radius: 10px;
-  border: 1px solid #00ff84;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px #00ff99;
 }
 
-.stack span {
-  display: inline-block;
-  background: #00ff84;
-  color: #111;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 8px;
-  font-size: 0.85rem;
+.carousel-info h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #00ff99;
 }
 
-.modal-buttons a {
-  display: inline-block;
-  margin: 10px 10px 0 0;
-  padding: 10px 15px;
-  background: #00ff84;
-  color: #111;
+.carousel-info p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+.github-link {
+  background-color: #00ff99;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   text-decoration: none;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.modal-buttons a:hover {
-  background: #026e3a;
-  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
+.github-link:hover {
+  background-color: #00cc77;
+}
+
+.carousel-controls {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.carousel-controls button {
+  background-color: #00ff99;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
 }
 
 
 .about-wrapper{
-  padding-top: 30px;
-  margin-top: 24vh;
-  padding-bottom: 30px;
-  margin-bottom: 24vh;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+  padding: 0 20px;         
+  margin: 0; 
+    
+  
 }
 
 .contac-wrapper{
-  padding-top: 60px;
-  margin-top: 20vh;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+  padding: 0 20px;         
+  margin: 0; 
 }
 
 .story {
@@ -367,7 +324,7 @@ header {
 
 #habilidades {
   padding: 50px;
-  background-color: #0d0d0d;
+  background-color: transparent;
   color: #fff;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
@@ -381,7 +338,7 @@ header {
 }
 
 .skill-card {
-  background: #1a1a1a;
+  background: #212121;
   border-radius: 20px;
   padding: 25px;
   width: 220px;
@@ -413,7 +370,7 @@ header {
 }
 
 .skill-card code {
-  background-color: #111;
+  background-color: #212121;
   padding: 5px 10px;
   border-radius: 5px;
   display: block;
@@ -425,7 +382,7 @@ header {
   position: absolute;
   top: -15px;
   left: 10px;
-  background-color: #222;
+  background-color: #212121;
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 0.8em;
@@ -436,23 +393,23 @@ header {
 
 /* Rareza visual */
 .legendario {
-  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+  border-image: linear-gradient(45deg, #00ff88, #00ffff) 1;
 }
 
 .epico {
-  border-image: linear-gradient(45deg, #00c6ff, #0072ff) 1;
+  border-image: linear-gradient(45deg, #00ff88, #00ffff) 1;
 }
 
 .raro {
-  border-image: linear-gradient(45deg, #8e2de2, #4a00e0) 1;
+  border-image: linear-gradient(45deg, #00ff88, #00ffff) 1;
 }
 
 .comun {
-  border-image: linear-gradient(45deg, #aaaaaa, #555555) 1;
+  border-image: linear-gradient(45deg, #00ff88, #00ffff) 1;
 }
 
 .aprendizaje {
-  border-image: linear-gradient(45deg, #00ff88, #00ffaa) 1;
+  border-image: linear-gradient(45deg, #00ff88, #00ffff) 1;
 }
 
 
